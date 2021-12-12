@@ -1,0 +1,23 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "ganache-cli --networkId 1337 --chainId 1337 --port 8545 --account '0x711d606ff77cd768799ba4b99153ecea438c97c1d9870ffe1b7256bbb3b5a163,100000000000000000000' --account '0xab47d42408b4e176f43eb83c08c6aa620c49a2892d095343f3360db23568428a,100000000000000000000' --db .\\db\\",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.0",
+    "@truffle/hdwallet-provider": "^2.0.0",
+    "ganache-cli": "^6.12.2",
+    "truffle": "^5.4.24",
+    "truffle-plugin-verify": "^0.5.20"
+  }
+}
