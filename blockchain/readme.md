@@ -1,16 +1,19 @@
-# steps
+# ERC721 NFT & NFT MARKET
 
-## Development
+This part will take care of the deployment of the ERC721 NFT and the Market , the first part will be a deployment using ganache-cli and the second part will be a deployment on Mumbai, the testnet for [Polygon](https://polygon.technology/). Let's start installing the dependencies
 
-0. ?
+0. Install the dependencies
 
 ```console
 cd blockchain
 npm run install
 ```
 
-Start a new blockchain using ganache-cli
- - use the --db switch to save the state of the blockchain in a folder
+## First part - Development
+
+Start a new blockchain using ganache-cli, it will generate new addresses filled with funds
+
+- use the --db switch to save the state of the blockchain in a folder
 - if you want to set your own accounts use the --acounts switch
 
 ```console
@@ -58,22 +61,36 @@ Call Gas Limit
 
 2.  Set the proper config in truffle-config.js
 
+On truffle-config.js add the directory where the contracts information will be stored for the frontend using the *contracts_build_directory* parameter , then add ganache-cli as a network to deploy with truffle
+
 ```javascript
+module.exports{
 //Under network add
+...
+
+contracts_build_directory: path.join(__dirname,"..", "client/src/contracts"),
 networks:{
     development: {
-        host: "127.0.0.1",     // Localhost (default: none)
-        port: 8545,            // Standard Ethereum port (default: none)
-        network_id: "*",       // Any network (default: none)
+        host: "127.0.0.1",
+        port: 8545,     
+        network_id: "*",     
     },
+}
+...
 }
 ```
 
 3. deploy the contracts
 
+Now that truffle-config is properly setted up let's create the contracts in the blockchain using the migrate function of truffle, it will compile the contracts and do the transactions to create them on ganache-cli for you, it will also copy the contracts to the frontend folder.
+
 ```console
 truffle migrate --network development
 ```
+
+Congratulations!! You have installed a local blockchain and deployed a NFT market on it. Now it's time to see how things work on a '*real*' blockchain
+
+Now NFT and Market contract have been deployed to the blockchain created by ganache 
 
 ### Production
 
