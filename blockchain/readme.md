@@ -90,7 +90,7 @@ truffle migrate --network development
 
 Congratulations!! You have installed a local blockchain and deployed a NFT market on it. Now it's time to see how things work on a '*real*' blockchain
 
-Now NFT and Market contract have been deployed to the blockchain created by ganache 
+Now NFT and Market contract have been deployed to the blockchain created by ganache.
 
 ### Production
 

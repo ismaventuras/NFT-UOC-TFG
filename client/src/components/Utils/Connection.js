@@ -4,7 +4,7 @@ import { network } from '../../connectors'
 import { LoadingApp } from './Loading'
 import { useEagerConnect } from "../../hooks/useEagerConnect";
 import { useInactiveListener } from "../../hooks/useInactiveListener"
-import ConnectionProvider, { ConnectionContext } from '../../context/ConnectionContext';
+import { ConnectionContext } from '../../context/ConnectionContext';
 
 
 export const ConnectedToRPC = ({children , RPC}) => {
@@ -18,7 +18,7 @@ export const ConnectedToRPC = ({children , RPC}) => {
         let isSubscribed = true
         const check = async () => {
             try{
-                const result = await fetch(RPC)
+                await fetch(RPC)
                 if (isSubscribed){
                     context.activate(network)
                     setConnected(true)

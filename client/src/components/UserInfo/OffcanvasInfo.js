@@ -1,6 +1,6 @@
 import { useWeb3React } from '@web3-react/core'
-import React, { useContext, useEffect, useState } from 'react'
-import { Button, Offcanvas } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Offcanvas } from 'react-bootstrap'
 
 import { useNFTContractService } from '../../services/injectedUserService'
 
@@ -24,7 +24,7 @@ const SingleNFTInfo = ({tokenId}) => {
     return(
         <>
             <p className='text-break'>
-                {metadata &&  <a href={metadata} target="_blank">#{tokenId}</a>}
+                {metadata &&  <a href={metadata} target="_blank" rel='noreferrer'>#{tokenId}</a>}
             </p>
         </>
     )
