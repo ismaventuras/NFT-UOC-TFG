@@ -19,6 +19,7 @@ const SingleNFTInfo = ({tokenId}) => {
             setMetadata(metadatauri)
         }
         call()
+        // eslint-disable-next-line
     },[])
 
     return(
@@ -37,6 +38,7 @@ const YourNFT = () => {
 
     useEffect(()=>{
         ownerBalance().then(result => setTokenIdList(result)).catch(console.log)
+        // eslint-disable-next-line
     },[])
 
 

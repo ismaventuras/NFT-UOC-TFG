@@ -34,6 +34,7 @@ export const ConnectedToRPC = ({children , RPC}) => {
             isSubscribed = false
             clearInterval(interval)
         }
+        // eslint-disable-next-line
     },[])
 
     // // handle logic to eagerly connect to the injected ethereum provider, if it exists and has granted access already

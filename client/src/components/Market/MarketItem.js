@@ -34,7 +34,7 @@ export const MarketItem = ({ item }) => {
             catch(error){console.log(error)}
         }
         call()
-            
+           // eslint-disable-next-line 
     },[])
 
     return (
