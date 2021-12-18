@@ -34,11 +34,9 @@ Un cop descarregat entrar a totes dues carpetes (blockchain i client) i executar
 /tfg/client> npm install
 ```
 
-## Implementació
+## Implementació desenvolupament
 
-### Desenvolupament
-
-#### blockchain
+### blockchain
 
 Arrancar la blockchain
 
@@ -95,13 +93,13 @@ Arranca l'aplicació
 
 ![imatge_market_development](./images/app_prod_test.png)
 
-### Producció
+## Implementació Producció
 
 Per llençar l'aplicació a producció hi ha que triar una blockchain i un cop triada, canviar les dades crear un fitxer `.env.production` canviant les variables d'entorn `DEFAULT_CHAIN` i `DEFAULT_RPC`. És important tambè tenir una wallet (veure annex Metamask) amb tokens que s'utilitzin per pagar transaccions en la blockchain triada. A la part del backend haurem d'editar el fitxer `truffle-config.js` i crear un fitxer .secret amb la clau privada de la wallet per a poder llençar els programes a la blockchain.
 
 En el nostre cas utilitzarem la xarxa Mumbai, una xarxa de proves on els tokens no tenen valor real.
 
-#### Blockchain
+### Blockchain
 
 Editem el fitxer `truffle-config.js` descomentant les linies que permeten llençar a la els programes a la xarxa mumbai
 
@@ -147,7 +145,7 @@ Summary
 > Final cost:          0.012739612535670915 ETH
 ```
 
-#### Client
+### Client
 
 Creem el fitxer `.env.production` que quedaria tal que així 
 
@@ -174,9 +172,7 @@ REACT_APP_PUBLIC_URL="YOUR_WEBSITE_URL"
 
 Fent un `npm run start:production` comproven que tot funciona amb la la blockchain Mumbai en lloc de ganache.
 
-
-
-#### Hosting de la web a Github Pages
+### Hosting de la web a Github Pages
 
 Hem de crear un repositori a Github, crear un repositori git i pujar aques ultim al repositori de github.
 
@@ -199,8 +195,6 @@ tfg> git commit -m <commit_message>
 tfg> git remote add origin https://github.com/<github_user>/<repository_name>.git
 tfg> git push origin master
 ```
-
-
 
 Un cop fet aquest canvi anem a la carpeta client i hem d'executar `npm run deploy` i automaticament es creara una branca nova anomenada gh-pages i la aplicació serà accessible mitjançant la url `https://your_github_user.github.io/your_github_repo`
 
