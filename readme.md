@@ -133,6 +133,14 @@ Un cop fet tot això, llencem els programes com hem fet abans pero aquest cop tr
 /tfg/blockchain> npm run migrate --network mumbai
 ```
 
+El cost total seria el següent:
+
+```console
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.012739612535670915 ETH
+```
 #### Client
 
 Creem el fitxer `.env.production` que quedaria tal que així 
