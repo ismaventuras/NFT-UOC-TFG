@@ -16,7 +16,6 @@ La implementació ha estat testejada en Windows 10
 
 - **NOMÉS PRODUCCIÓ**
   - Tokens MATIC a la wallet de metamask
-  - Github Desktop
 
 ## Instal·lació
 
