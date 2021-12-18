@@ -6,6 +6,8 @@ Aquesta es la guia per implementar un mercat NFT, tot el que no sigui part de l'
 
 La implementació consta de dues parts: l'entorn de desenvolupament i el llançament a producció. L'entorn de desenvolupament consisteix en una blockchain local utilitzant ganache mentre que en producció la blockchain es qualsevol de les implementacions existents de la EVM. Ent tots dos entorns s'utilitza el framework Truffle per compilar els programes que s'executaràn a la blockchain.
 
+La implementació ha estat testejada en Windows 10
+
 ## Prerequisits
 
 - [nft.storage](https://nft.storage/) API key (Annex nft.storage)
@@ -14,6 +16,7 @@ La implementació consta de dues parts: l'entorn de desenvolupament i el llança
 
 - **NOMÉS PRODUCCIÓ**
   - Tokens MATIC a la wallet de metamask
+  - Github Desktop
 
 ## Instal·lació
 
@@ -90,6 +93,8 @@ Arranca l'aplicació
 /tfg/client> npm run start
 ```
 
+![imatge_market_development](./images/app_prod_test.png)
+
 ### Producció
 
 Per llençar l'aplicació a producció hi ha que triar una blockchain i un cop triada, canviar les dades crear un fitxer `.env.production` canviant les variables d'entorn `DEFAULT_CHAIN` i `DEFAULT_RPC`. És important tambè tenir una wallet (veure annex Metamask) amb tokens que s'utilitzin per pagar transaccions en la blockchain triada. A la part del backend haurem d'editar el fitxer `truffle-config.js` i crear un fitxer .secret amb la clau privada de la wallet per a poder llençar els programes a la blockchain.
@@ -141,6 +146,7 @@ Summary
 > Total deployments:   3
 > Final cost:          0.012739612535670915 ETH
 ```
+
 #### Client
 
 Creem el fitxer `.env.production` que quedaria tal que així 
@@ -168,11 +174,11 @@ REACT_APP_PUBLIC_URL="YOUR_WEBSITE_URL"
 
 Fent un `npm run start:production` comproven que tot funciona amb la la blockchain Mumbai en lloc de ganache.
 
+
+
 #### Hosting de la web a Github Pages
 
-**Prerequisits**
-
-- Repositori creat a Github
+Hem de crear un repositori a Github, crear un repositori git i pujar aques ultim al repositori de github.
 
 Per a fer llançar l'aplicació necessitem afegir la url del repositori al camp homepage del package.json
 
@@ -181,9 +187,29 @@ Per a fer llançar l'aplicació necessitem afegir la url del repositori al camp 
   "homepage":"https://your_github_user.github.io/your_github_repo"
   ...
 }
+
 ```
 
-Tambe esborrem la carpeta oculta .git i creem el nostre git
+Esborrem la carpeta oculta .git, creem el nostre repositori git i el pugem a github
+
+```console
+tfg> git init
+tfg> git add .
+tfg> git commit -m <commit_message>
+tfg> git remote add origin https://github.com/<github_user>/<repository_name>.git
+tfg> git push origin master
+```
+
+
+
+Un cop fet aquest canvi anem a la carpeta client i hem d'executar `npm run deploy` i automaticament es creara una branca nova anomenada gh-pages i la aplicació serà accessible mitjançant la url `https://your_github_user.github.io/your_github_repo`
+
+```console
+tfg> cd client
+tfg/client> npm run deploy
+```
+
+![imatge_mmarket_prod](./images/app2.png)
 
 ## Cheatsheet
 
