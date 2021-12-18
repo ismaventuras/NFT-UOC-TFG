@@ -1,21 +1,21 @@
-# NFT TFG
+# Implementació del TFG - Mercat NFT a xarxes Ethereum
 
 ## Introducció
 
 Aquesta es la guia per implementar un mercat NFT, tot el que no sigui part de l'execució està explicats a documents annexos.
 
-La implementació consta de dues parts: l'entorn de desenvolupament i el llançament a producció. L'entorn de desenvolupament consisteix en una blockchain local utilitzant ganache mentre que en producció la blockchain es qualsevol de les implementacions existents de la EVM. Ent tots dos entorns s'utilitza el framework Truffle per compilar els programes que s'executaràn a la blockchain.
+La implementació consta de dues parts: l'entorn de desenvolupament i el llançament a producció. L'entorn de desenvolupament consisteix en una blockchain local utilitzant ganache mentre que en producció la blockchain es qualsevol de les implementacions existents de la EVM. En tots dos entorns s'utilitza el framework Truffle per compilar els programes que s'executaran a la blockchain.
 
-La implementació ha estat testejada en Windows 10
+La implementació ha estat testejada en Windows 10 i Ubuntu 18
 
 ## Prerequisits
 
 - [nft.storage](https://nft.storage/) API key (Annex nft.storage)
-- node & npm
+- [node & npm](https://nodejs.org/en/)
 - Navegador amb metamask (Annex Instal·lació Metamask)
 
 - **NOMÉS PRODUCCIÓ**
-  - Tokens MATIC a la wallet de metamask
+  - Tokens MATIC a la wallet de metamask (Annex Instal·lació Metamask)
 
 ## Instal·lació
 
@@ -23,7 +23,7 @@ La implementació ha estat testejada en Windows 10
 /> git clone https://github.com/ismaventuras/NFT-UOC-TFG.git tfg
 ```
 
-Un cop descarregat entrar a totes dues carpetes (blockchain i client) i executar `npm install` per a instalar les dependencies
+Un cop descarregat entrar a totes dues carpetes (blockchain i client) i executar `npm install` per a instal·lar les dependències
 
 ```bash
 /tfg> cd blockchain
@@ -59,9 +59,9 @@ Compila els programes i llença'ls a la blockchain
 
 **Important abans d'arrancar el front**
 
-- Obentenir una [nft.storage](https://nft.storage/) API key
+- Obtenir una [nft.storage](https://nft.storage/) API key
   - Annex nft.storage
-- Crear un fitxer `.env` utiltizant `.example.env` com a base
+- Crear un fitxer `.env` utilitizant `.example.env` com a base
 
 ```console
 REACT_APP_DEFAULT_CHAIN_ID=1337
@@ -94,13 +94,13 @@ Arranca l'aplicació
 
 ## Implementació Producció
 
-Per llençar l'aplicació a producció hi ha que triar una blockchain i un cop triada, canviar les dades crear un fitxer `.env.production` canviant les variables d'entorn `DEFAULT_CHAIN` i `DEFAULT_RPC`. És important tambè tenir una wallet (veure annex Metamask) amb tokens que s'utilitzin per pagar transaccions en la blockchain triada. A la part del backend haurem d'editar el fitxer `truffle-config.js` i crear un fitxer .secret amb la clau privada de la wallet per a poder llençar els programes a la blockchain.
+Per llençar l'aplicació a producció hi ha que triar una blockchain i un cop triada, canviar les dades crear un fitxer `.env.production` canviant les variables d'entorn `DEFAULT_CHAIN` i `DEFAULT_RPC`. És important també tenir una wallet (veure annex Metamask) amb tokens que s'utilitzin per pagar transaccions en la blockchain triada. A la part del backend haurem d'editar el fitxer `truffle-config.js` i crear un fitxer .secret amb la clau privada de la wallet per a poder llençar els programes a la blockchain.
 
 En el nostre cas utilitzarem la xarxa Mumbai, una xarxa de proves on els tokens no tenen valor real.
 
 ### Blockchain
 
-Editem el fitxer `truffle-config.js` descomentant les linies que permeten llençar a la els programes a la xarxa mumbai
+Editem el fitxer `truffle-config.js` descomentant les línies que permeten llençar a la els programes a la xarxa mumbai
 
 ```javascript
 //...
@@ -127,9 +127,9 @@ networks:{
 //...
 ```
 
-Hem de crear un arxiu .secret amb la private key, de la mateixa forma que a l'arxiu `.example.secret`, per a poder llençar els programes a una blockchain local fa falta que tinguem tokens d'utilitat d'aquella xarxa, en el cas de Mumbai es necessiten MATIC token, per a acosneguir tokens MATIC es pot consultar el annexe d'instal·lació de Metamask
+Hem de crear un arxiu .secret amb la private key, de la mateixa forma que a l'arxiu `.example.secret`, per a poder llençar els programes a una blockchain local fa falta que tinguem tokens d'utilitat d'aquella xarxa, en el cas de Mumbai es necessiten MATIC token, per a aconseguir tokens MATIC es pot consultar el annexe d'instal·lació de Metamask
 
-Un cop fet tot això, llencem els programes com hem fet abans pero aquest cop triant la network mumbai
+Un cop fet tot això, llencem els programes com hem fet abans però aquest cop triant la network mumbai
 
 ```bash
 /tfg/blockchain> npm run migrate --network mumbai
@@ -173,7 +173,7 @@ Fent un `npm run start:production` comproven que tot funciona amb la la blockcha
 
 ### Hosting de la web a Github Pages
 
-Hem de crear un repositori a Github, crear un repositori git i pujar aques ultim al repositori de github.
+Hem de crear un repositori a Github, crear un repositori git i pujar aquest últim al repositori de github.
 
 Per a fer llançar l'aplicació necessitem afegir la url del repositori al camp homepage del package.json
 
@@ -195,7 +195,7 @@ tfg> git remote add origin https://github.com/<github_user>/<repository_name>.gi
 tfg> git push origin master
 ```
 
-Un cop fet aquest canvi anem a la carpeta client i hem d'executar `npm run deploy` i automaticament es creara una branca nova anomenada gh-pages i la aplicació serà accessible mitjançant la url `https://your_github_user.github.io/your_github_repo`
+Un cop fet aquest canvi anem a la carpeta client i hem d'executar `npm run deploy` i automàticament es crearà una branca nova anomenada gh-pages i la aplicació serà accessible mitjançant la url `https://your_github_user.github.io/your_github_repo`
 
 ```console
 tfg> cd client
