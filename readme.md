@@ -125,10 +125,70 @@ networks:{
 //...
 ```
 
-Llencem els programes com hem fet abans pero aquest cop triant la network mumbai
+Hem de crear un arxiu .secret amb la private key, de la mateixa forma que a l'arxiu `.example.secret`, per a poder llençar els programes a una blockchain local fa falta que tinguem tokens d'utilitat d'aquella xarxa, en el cas de Mumbai es necessiten MATIC token, per a acosneguir tokens MATIC es pot consultar el annexe d'instal·lació de Metamask
+
+Un cop fet tot això, llencem els programes com hem fet abans pero aquest cop triant la network mumbai
 
 ```bash
 /tfg/blockchain> npm run migrate --network mumbai
 ```
 
 #### Client
+
+Creem el fitxer `.env.production` que quedaria tal que així 
+
+```console
+REACT_APP_DEFAULT_CHAIN_ID=https://rpc-mumbai.maticvigil.com
+REACT_APP_DEFAULT_RPC=800001
+
+REACT_APP_LOCAL_RPC=http://localhost:8545
+REACT_APP_LOCAL_NETVERSION=5777
+REACT_APP_LOCAL_CHAINID=1337
+
+REACT_APP_BSC_TESTNET_RPC=
+REACT_APP_BSC_TESTNET_NETVERSION=
+REACT_APP_BSC_TESTNET_CHAINID=97
+
+REACT_APP_MUMBAI_RPC=https://rpc-mumbai.maticvigil.com
+REACT_APP_MUMBAI_NETVERSION=80001
+REACT_APP_MUMBAI_CHAINID=80001
+
+REACT_APP_NFT_API="YOUR_NFT.STORAGE_API_KEY"
+
+REACT_APP_PUBLIC_URL="YOUR_WEBSITE_URL"
+```
+
+Fent un `npm run start:production` comproven que tot funciona amb la la blockchain Mumbai en lloc de ganache.
+
+#### Hosting de la web a Github Pages
+
+**Prerequisits**
+
+- Repositori creat a Github
+
+Per a fer llançar l'aplicació necessitem afegir la url del repositori al camp homepage del package.json
+
+```json
+{
+  "homepage":"https://your_github_user.github.io/your_github_repo"
+  ...
+}
+```
+
+Tambe esborrem la carpeta oculta .git i creem el nostre git
+
+## Cheatsheet
+
+scripts npm client:
+
+"deploy":   use gh-pages to deploy the client to github
+
+"start": start the app in dev mode
+
+"start:production": start the app in prod mode
+
+scripts npm blockchain:
+
+"start": arranca la blockchain
+
+migrate:  compila i llença els contractes a la blockchain, utilitzar el switch --network per decidir a quina xarxa llençar.

@@ -8,3 +8,4 @@ node_modules
 .env.production.local
 
 db/*
+client/src/contracts/*
