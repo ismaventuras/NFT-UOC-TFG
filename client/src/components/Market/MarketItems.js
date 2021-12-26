@@ -116,22 +116,3 @@ export const MarketItems = () => {
         </Container>
     )
 }
-// export const MarketItems = () => {
-//     const saleItems = useSelector(state => state)
-
-
-//     return (
-//         <Container className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-4'>
-//             {saleItems && saleItems.length > 0 
-//             ? 
-//                 saleItems.map(item => (
-//                 item.active && <Col key={item.saleId}><MarketItem item={item} /></Col>))
-//             :
-//             <div className='d-flex justify-content-center w-100 flex-column align-items-center gap-2'>
-//                 <Spinner animation="grow" size="lg" className="" />
-//                 <p className='fs-2'>Loading data from market...</p>
-//             </div>
-//             }
-//         </Container>
-//     )
-// }

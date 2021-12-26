@@ -47,7 +47,7 @@ Compila els programes i llença'ls a la blockchain
 
 ```bash
 #en altre consola
-/tfg/blockchain> truffle migrate --network development
+/tfg/blockchain> npm run migrate development
 ```
 
 ### client

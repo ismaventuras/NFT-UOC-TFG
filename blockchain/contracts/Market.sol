@@ -44,18 +44,18 @@ contract Market is IERC721Receiver, Ownable {
         // }
     }
     
-    function addBlacklistedContract(address _addr) public onlyOwner {
-        bool exists = blacklisted_contracts[_addr];
-        require(!exists,'contract already added');
-        blacklisted_contracts[_addr]=true;
-        emit ContractBlacklisted(_addr, msg.sender);
-    }
-    function removeBlacklistedContract(address _addr) public onlyOwner{
-        bool exists = blacklisted_contracts[_addr];
-        require(exists,'address does not exist');
-        blacklisted_contracts[_addr]=false;
-        emit ContractWhitelisted(_addr, msg.sender);
-    }
+    // function addBlacklistedContract(address _addr) public onlyOwner {
+    //     bool exists = blacklisted_contracts[_addr];
+    //     require(!exists,'contract already added');
+    //     blacklisted_contracts[_addr]=true;
+    //     emit ContractBlacklisted(_addr, msg.sender);
+    // }
+    // function removeBlacklistedContract(address _addr) public onlyOwner{
+    //     bool exists = blacklisted_contracts[_addr];
+    //     require(exists,'address does not exist');
+    //     blacklisted_contracts[_addr]=false;
+    //     emit ContractWhitelisted(_addr, msg.sender);
+    // }
     
     function createSale(uint _price, uint _tokenId, address _nftContract) public{
         //require(allowed_contracts[_nftContract],'nft contract not allowed');
