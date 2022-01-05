@@ -1,8 +1,8 @@
 const fs = require('fs');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const path = require('path')
-//const privateKey = fs.readFileSync(".secret").toString().trim();
-//var provider = new HDWalletProvider(privateKey, "https://rpc-mumbai.maticvigil.com")
+const privateKey = fs.readFileSync(".secret").toString().trim();
+var provider = new HDWalletProvider(privateKey, "https://rpc-mumbai.maticvigil.com")
 
 module.exports = {
 
@@ -13,13 +13,13 @@ module.exports = {
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
      },
-    //  mumbai: {
-    //    provider: provider,
-    //    network_id:80001,
-    //    confirmations: 2,
-    //    timeoutBlocks: 200,
-    //    skipDryRun: true
-    //  },
+     mumbai: {
+       provider: provider,
+       network_id:80001,
+       confirmations: 2,
+       timeoutBlocks: 200,
+       skipDryRun: true
+     },
   },
 
   // Set default mocha options here, use special reporters etc.
@@ -36,5 +36,9 @@ module.exports = {
 
   db: {
     enabled: false
+  },
+  plugins: ['truffle-plugin-verify'],
+  api_keys:{
+    polygonscan: "QV5P2IG2BIWH8DMQD2NIP4EBGP1FA6WS6R"
   }
 };
